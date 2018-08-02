@@ -17,7 +17,7 @@ def main():
         for strActualFolder, listFolders, listFiles in os.walk(strMergeFolder):
             for strActualFile in listFiles:
                 if strActualFile.endswith('.pdf'):
-                    listPDFFiles.append(strActualFile)
+                    listPDFFiles.append(strActualFolder + os.path.sep + strActualFile)
                     print('Add: %s' % strActualFile)
     else:
         print('Path doesn\'t exist!')
@@ -27,8 +27,8 @@ def main():
         pdfMerger = PyPDF2.PdfFileMerger()
 
         for intIndex, strPDFFile in enumerate(listPDFFiles, start=0):
-            strFile = strMergeFolder + os.path.sep + strPDFFile
-            pdfMerger.append(open(strFile, 'rb'), bookmark=strPDFFile, pages=None, import_bookmarks=True)
+            pdfMerger.append(open(strPDFFile, 'rb'), bookmark=strPDFFile, pages=None, import_bookmarks=True)
+            print('Appending file: %s' % strPDFFile)
 
         pdfMerger.write(strOutputFile)
         pdfMerger.close()
