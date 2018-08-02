@@ -8,3 +8,11 @@ PDFMerger scans the folder `strMergeFolder` (including all subfolders) for .PDF 
 ### ToDo's
 
 - [ ] Use the argument function for the both folders
+
+## UnzipFiles.py
+
+UnzipFiles scans the folder `strUnzipThisFolder` (including all subfolders) for .zip files. The Zip files will be extracted to `strTargetFolder`added with the filename as subfolder. 
+
+### ToDo's
+
+- [ ] Use the argument function for the both folders
