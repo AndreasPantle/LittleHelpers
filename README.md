@@ -16,3 +16,11 @@ UnzipFiles scans the folder `strUnzipThisFolder` (including all subfolders) for 
 ### ToDo's
 
 - [ ] Use the argument function for the both folders
+
+## ShowFolderContent.py
+
+Walks through the folder and subfolder and shows you the content in a text file. There are two arguments needed:
+
+* Folder (absolut)
+* abs or rel for the output (Paths absolut or relative)
+
