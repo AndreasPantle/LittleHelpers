@@ -5,6 +5,8 @@
 import sys
 import os
 
+lFilter = ['.svn', '.sv', '.idea', '.ide', '.sv']
+
 def main():
     # We need one folder
     if len(sys.argv) != 3:
@@ -25,6 +27,14 @@ def main():
 
     for sActualFolder, lFolders, lFiles in os.walk(sFolder):
         for sFile in lFiles:
+            # Check file filter
+            if any(sFile in s for s in lFilter):
+                continue
+
+            # Check folder filter
+            if any(s in sActualFolder for s in lFilter):
+                continue
+
             sAppendFile = ''
 
             if sMode == 'abs':
