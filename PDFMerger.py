@@ -5,8 +5,8 @@ import os
 import sys
 import PyPDF2
 
-strMergeFolder = '/YourPath/With/The/PDF/Files'
-strOutputFile = '/Output/File.pdf'
+strMergeFolder = '/home/user/folder'
+strOutputFile = '/home/user/combined.pdf'
 
 def main():
     listPDFFiles = list()
@@ -24,10 +24,14 @@ def main():
         sys.exit(1)
 
     if len(listPDFFiles) != 0:
+        # Sort file list
+        listPDFFiles.sort()
+
         pdfMerger = PyPDF2.PdfFileMerger()
 
         for intIndex, strPDFFile in enumerate(listPDFFiles, start=0):
-            pdfMerger.append(open(strPDFFile, 'rb'), bookmark=strPDFFile, pages=None, import_bookmarks=True)
+            bookmark_title = strPDFFile.rsplit('/', 1)[-1]
+            pdfMerger.append(open(strPDFFile, 'rb'), bookmark=bookmark_title, pages=None, import_bookmarks=True)
             print('Appending file: %s' % strPDFFile)
 
         pdfMerger.write(strOutputFile)
