@@ -24,3 +24,13 @@ Walks through the folder and subfolder and shows you the content in a text file.
 * Folder (absolut)
 * abs or rel for the output (Paths absolut or relative)
 
+## RemoveWaste.py
+
+Searches for know files and folders and deletes them. Typically:
+
+```python
+folders_to_remove = ['.AppleDB', '.AppleDesktop', '.AppleDouble', 'Network Trash Folder', 'Temporary Items', '.Trash-1000']
+files_to_remove = ['.DS_Store', '._.DS_Store']
+```
+
+**Please be careful to use it!** Every file and folder which are present in this both lists will be deleted!
