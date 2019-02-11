@@ -34,3 +34,23 @@ files_to_remove = ['.DS_Store', '._.DS_Store']
 ```
 
 **Please be careful to use it!** Every file and folder which are present in this both lists will be deleted!
+
+## EvernoteAttachmentExtract.py
+
+Extract the content from an `.enex` file which could be exported from Evernote.
+
+* Content
+* Attachments (files attached to the note)
+* Note itself as `json` file
+
+### Dependencies
+
+You need to install `lxml` for using this script. The other modules are included in Python 3.
+
+### Usage 
+
+```shell
+$ python3 EvernoteAttachmentExtract.py /path/to/your/note.enex
+```
+
+The output directory is `/path/to/your/NoteTitle/`.
